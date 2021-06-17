@@ -1,0 +1,37 @@
+// WEBPAGE RESETS SETTINGS
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /* for width >1200 but < 1800px font-size is 10px = 1rem. 10/16 = 0.625 = 62.5%. 16 px is user-agent defined root font-size.*/
+  @include respond(big-desktop) {
+    font-size: 75%; //for width >= 1800px font-size 12px , therefore it is 12/16 = 0.75 = 75%
+  }
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //for width <= 1200px font-size is 9px , 9/16 = 0.5625 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //for width <= 900px font-size is 8px, therefore 8/16 = 0.5 = 50%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
